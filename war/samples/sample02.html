@@ -1,0 +1,14 @@
+<h3 ng-bind="s02.title"></h3>
+<div>
+  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+    <input type="checkbox" id="switch-1" class="mdl-switch__input" ng-model="s02.model.checkbox">
+    <span class="mdl-switch__label">CheckBoxの値は <span ng-bind="s02.model.checkbox"></span></span>
+  </label>
+  <br>
+  <br>
+  <div>画像：<span ng-show="s02.model.checkbox">表示</span><span ng-hide="s02.model.checkbox">非表示</span></div>
+  <img src="https://angularjs.org/img/AngularJS-large.png" ng-show="s02.model.checkbox" ng-click="s02.model.checkbox=false">
+  <div>
+    ※画像クリックでチェックボックスをOFF
+  </div>
+</div>

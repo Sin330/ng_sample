@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="ja" ng-app="mainApp">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>AngularJS入門</title>
+    <script src="/bower_components/material-design-lite/material.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/sample01.js"></script>
+    <script src="assets/js/sample02.js"></script>
+    <script src="assets/js/sample03.js"></script>
+    <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body ng-controller="MainController as main">
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--scroll">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title" ng-bind="main.model.title"></span>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">AngularJS samples</span>
+        <nav class="mdl-navigation" menu-close>
+          <a class="mdl-navigation__link" href="/#/sample01">Sample01</a>
+          <a class="mdl-navigation__link" href="/#/sample02">Sample02</a>
+          <a class="mdl-navigation__link" href="/#/sample03">Sample03</a>
+          <a class="mdl-navigation__link" href="/#/sample00">Sample04</a>
+          <a class="mdl-navigation__link" href="/#/sample00">Sample05</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content" ng-view></div>
+      </main>
+    </div>
+  </body>
+</html>
