@@ -5,7 +5,7 @@
         title: 'AngularJS入門'
  
   angular
-  .module 'mainApp', ['ngRoute']
+  .module 'mainApp', ['ngRoute', 'ngMaterial', 'md.data.table']
   .config [
     '$routeProvider'
     '$locationProvider'
@@ -45,5 +45,4 @@
         document.querySelector('.mdl-layout').MaterialLayout.drawerToggleHandler_()
         return
       return
-
 )()

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/angular-material/angular-material.js"></script>
+  <script>
+
+    angular
+    .module('mainApp', ['ngMaterial'])
+    .controller('AppCtrl', ['$interval',
+      function($interval) {
+        var self = this;
+
+        self.activated = true;
+        self.determinateValue = 30;
+
+        // Iterate every 100ms, non-stop and increment
+        // the Determinate loader.
+        $interval(function() {
+
+          self.determinateValue += 1;
+          if (self.determinateValue > 100) {
+            self.determinateValue = 30;
+          }
+
+        }, 100);
+      }
+    ]);
+  </script>
+
+</head>
+<body ng-app="mainApp">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Large</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+
+  <md-content layout="row" layout-align="start center" layout-padding>
+    <div ng-controller="AppCtrl as vm" layout="column" ng-cloak>
+
+    <md-content layout-padding>
+      <md-input-container>
+        <label>Title</label>
+      <input ng-model="user.title">
+    </md-input-container>
+
+    <div layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-circular>
+    </div>
+
+  </md-content>
+
+  <md-content layout="row" layout-align="start center" layout-padding>
+    <p>Progress Circular Indicators: </p>
+
+    <h5>Off</h5>
+    <md-switch
+      ng-model="vm.activated"
+      aria-label="Toggle Progress Circular Indicators">
+    <h5>On</h5>
+    </md-switch>
+  </md-content>
+
+</body>
+</html>

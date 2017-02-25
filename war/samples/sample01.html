@@ -1,6 +1,10 @@
 <h3 ng-bind="s01.title"></h3>
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-  <input class="mdl-textfield__input" type="text" id="name1" ng-model="s01.model.name">
-  <label class="mdl-textfield__label" for="name1">Input your name</label>
-</div>
+<md-content layout="row" layout-align="start center" layout-padding>
+  <md-content layout-padding>
+    <md-input-container>
+      <label>Input your name</label>
+      <input ng-model="s01.model.name">
+    </md-input-container>
+  </md-content>
+</md-content>
 <div>Hello <span ng-bind="s01.model.name"></span>!!</div>

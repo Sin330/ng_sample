@@ -1,21 +1,30 @@
+<h3 ng-bind="s03.title"></h3>
 <div>
-  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-    <tr>
-      <th class="mdl-data-table__cell--non-numeric">Code</th>
-      <th class="mdl-data-table__cell--non-numeric">商品名</th>
-      <th>価格</th>
-      <th>税込</th>
-    </tr>
-    <tr ng-repeat="item in s03.model.list">
-      <td class="mdl-data-table__cell--non-numeric" ng-bind="item.code"></td>
-      <td class="mdl-data-table__cell--non-numeric" ng-bind="item.name"></td>
-      <td ng-bind="item.price"></td>
-      <td ng-bind="item.price * s03.model.tax | number:0"></td>
-    </tr>
-  </table>
+  <md-table-container>
+    <table md-table multiple>
+      <thead md-head>
+        <tr md-row>
+          <th md-column>Code</th>
+          <th md-column>商品名</th>
+          <th md-column md-numeric>価格</th>
+          <th md-column md-numeric>税込</th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row md-select="dessert" ng-repeat="item in s03.model.list">
+          <td md-cell ng-bind="item.code"></td>
+          <td md-cell ng-bind="item.name"></td>
+          <td md-cell ng-bind="item.price"></td>
+          <td md-cell ng-bind="item.price * s03.model.tax | number:0"></td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
   <br />
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="tax" ng-model="s03.model.tax">
-    <label class="mdl-textfield__label" for="tax">税率</label>
-  </div>
+  <md-content layout-padding>
+    <md-input-container>
+      <label>税率</label>
+      <input ng-model="s03.model.tax">
+    </md-input-container>
+  </md-content>
 </div>

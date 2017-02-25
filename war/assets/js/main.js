@@ -12,7 +12,7 @@
       return MainController;
 
     })();
-    return angular.module('mainApp', ['ngRoute']).config([
+    return angular.module('mainApp', ['ngRoute', 'ngMaterial', 'md.data.table']).config([
       '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         return $routeProvider.when('/sample00', {
           templateUrl: 'samples/sample00.html'
